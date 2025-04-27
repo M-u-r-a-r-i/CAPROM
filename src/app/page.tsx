@@ -193,11 +193,6 @@ export default function Home() {
       // Use the Web Speech API to convert text to speech
       const utterance = new SpeechSynthesisUtterance(caption);
 
-      // Optional: Configure the speech (voice, rate, pitch, etc.)
-      // For example:
-      // utterance.voice = window.speechSynthesis.getVoices()[0]; // Select the first available voice
-      // utterance.rate = 0.8;  // Reduce the speaking rate
-
       // Create a promise to handle the onend event
       await new Promise<void>((resolve, reject) => {
         utterance.onend = () => {
@@ -215,7 +210,7 @@ export default function Home() {
         title: 'Text-to-Speech',
         description: 'Caption converted to speech.',
       });
-      setAudioUrl('');// clear audio url, speech is handled by browser directly
+      setAudioUrl('');
     } catch (error: any) {
       toast({
         title: 'Error',
